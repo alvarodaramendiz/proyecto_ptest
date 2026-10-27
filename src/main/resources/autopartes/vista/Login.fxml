@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="autopartes.vista.LoginController" styleClass="login-fondo">
+
+    <!-- Panel izquierdo: marca -->
+    <StackPane HBox.hgrow="ALWAYS" styleClass="login-marca">
+        <VBox alignment="CENTER" spacing="14" maxWidth="460">
+            <Label text="ORIGEN" styleClass="logo-grande"/>
+            <Label text="Portal inteligente de repuestos" styleClass="titulo-marca"/>
+            <Label text="Compara precios, disponibilidad y procedencia de los almacenes de repuestos de tu ciudad."
+                   wrapText="true" styleClass="texto-secundario" textAlignment="CENTER"/>
+            <HBox alignment="CENTER" spacing="12">
+                <padding><Insets top="18"/></padding>
+                <Label text="Disponibilidad inmediata" styleClass="chip"/>
+                <Label text="Locales verificados" styleClass="chip"/>
+                <Label text="Mejor precio" styleClass="chip"/>
+            </HBox>
+        </VBox>
+    </StackPane>
+
+    <!-- Panel derecho: formulario -->
+    <StackPane prefWidth="520" minWidth="440">
+        <padding><Insets top="40" right="48" bottom="40" left="24"/></padding>
+        <VBox spacing="14" maxWidth="400" maxHeight="-Infinity" styleClass="tarjeta">
+            <padding><Insets top="36" right="36" bottom="36" left="36"/></padding>
+            <Label text="Iniciar sesión" styleClass="titulo-tarjeta"/>
+            <Label text="Accede a tu cuenta para continuar" styleClass="texto-secundario"/>
+            <Region prefHeight="6"/>
+
+            <Label text="Correo o usuario" styleClass="etiqueta"/>
+            <TextField fx:id="txtCorreo" promptText="tucorreo@ejemplo.com" onAction="#ingresar"/>
+
+            <Label text="Contraseña" styleClass="etiqueta"/>
+            <PasswordField fx:id="txtContrasena" promptText="••••••••" onAction="#ingresar"/>
+
+            <HBox alignment="CENTER_LEFT" spacing="8">
+                <CheckBox text="Recordarme"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Hyperlink text="¿Olvidaste tu contraseña?"/>
+            </HBox>
+
+            <Label fx:id="lblMensaje" styleClass="mensaje-error" wrapText="true"/>
+
+            <Button text="Ingresar" onAction="#ingresar" defaultButton="true"
+                    maxWidth="Infinity" styleClass="boton-primario"/>
+            <Button text="Crear cuenta" onAction="#crearCuenta"
+                    maxWidth="Infinity" styleClass="boton-secundario"/>
+        </VBox>
+    </StackPane>
+</HBox>

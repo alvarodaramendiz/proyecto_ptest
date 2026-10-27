@@ -1,0 +1,217 @@
+/*
+ * Estilos globales de ORIGEN - Portal de Repuestos.
+ * Todas las vistas usan estas clases; si necesitan un estilo nuevo, agréguenlo aquí
+ * en la sección de su módulo para no duplicar colores.
+ */
+
+/* ---------- Colores (basados en los mockups) ---------- */
+.root {
+    -color-azul-oscuro: #0C2B4B;
+    -color-azul: #0B5CAD;
+    -color-azul-claro: #E3EEF9;
+    -color-fondo: #EEF3F8;
+    -color-tarjeta: #FFFFFF;
+    -color-texto: #14213D;
+    -color-texto-suave: #5B6B7F;
+    -color-borde: #D6E0EA;
+    -color-error: #C0392B;
+
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 14px;
+    -fx-background-color: -color-fondo;
+}
+
+.label {
+    -fx-text-fill: -color-texto;
+}
+
+/* ---------- Generales ---------- */
+.fondo-app {
+    -fx-background-color: -color-fondo;
+}
+
+.tarjeta {
+    -fx-background-color: -color-tarjeta;
+    -fx-background-radius: 16;
+    -fx-border-color: -color-borde;
+    -fx-border-radius: 16;
+    -fx-effect: dropshadow(gaussian, rgba(12, 43, 75, 0.08), 18, 0, 0, 4);
+}
+
+.texto-secundario {
+    -fx-text-fill: -color-texto-suave;
+    -fx-font-size: 14px;
+}
+
+.etiqueta {
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
+
+.mensaje-error {
+    -fx-text-fill: -color-error;
+    -fx-font-size: 13px;
+}
+
+.titulo-seccion {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+/* ---------- Campos y botones ---------- */
+.text-field, .password-field {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: -color-borde;
+    -fx-border-radius: 10;
+    -fx-padding: 10 12;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: -color-azul;
+}
+
+.boton-primario {
+    -fx-background-color: linear-gradient(to right, #0B4A8F, #0B6FD1);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 11 22;
+    -fx-cursor: hand;
+}
+
+.boton-primario:hover {
+    -fx-background-color: -color-azul-oscuro;
+}
+
+.boton-secundario {
+    -fx-background-color: white;
+    -fx-text-fill: -color-azul-oscuro;
+    -fx-border-color: -color-borde;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 11 22;
+    -fx-cursor: hand;
+}
+
+.boton-secundario:hover {
+    -fx-background-color: -color-azul-claro;
+}
+
+.hyperlink {
+    -fx-text-fill: -color-azul;
+    -fx-border-color: transparent;
+}
+
+/* ---------- Login ---------- */
+.login-fondo {
+    -fx-background-color: linear-gradient(to bottom right, #F4F8FC, #DCE8F4);
+}
+
+.login-marca {
+    -fx-padding: 40;
+}
+
+.logo-grande {
+    -fx-font-size: 64px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-azul-oscuro;
+}
+
+.titulo-marca {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+}
+
+.titulo-tarjeta {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+.chip {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-padding: 10 14;
+    -fx-text-fill: -color-azul-oscuro;
+    -fx-effect: dropshadow(gaussian, rgba(12, 43, 75, 0.08), 10, 0, 0, 2);
+}
+
+/* ---------- Menú lateral ---------- */
+.menu-lateral {
+    -fx-background-color: -color-azul-oscuro;
+}
+
+.logo-menu {
+    -fx-text-fill: white;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 0 10;
+}
+
+.subtitulo-menu {
+    -fx-text-fill: #9FB6CF;
+    -fx-font-size: 12px;
+    -fx-padding: 0 0 0 10;
+}
+
+.menu-boton {
+    -fx-background-color: transparent;
+    -fx-text-fill: #DCE6F2;
+    -fx-font-size: 15px;
+    -fx-alignment: center-left;
+    -fx-padding: 12 16;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+
+.menu-boton:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+}
+
+.menu-activo {
+    -fx-background-color: -color-azul;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.menu-activo:hover {
+    -fx-background-color: -color-azul;
+}
+
+.menu-separador .line {
+    -fx-border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ---------- Inicio ---------- */
+.encabezado {
+    -fx-background-color: linear-gradient(to right, #FFFFFF, #E3EEF9);
+}
+
+.titulo-hero {
+    -fx-font-size: 38px;
+    -fx-font-weight: bold;
+    -fx-fill: -color-texto;
+}
+
+.titulo-hero-acento {
+    -fx-fill: -color-azul;
+}
+
+.campo-busqueda {
+    -fx-font-size: 15px;
+}
+
+.contador {
+    -fx-padding: 20 24;
+}
+
+.numero-contador {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -color-azul-oscuro;
+}
+
+/* ---------- Módulos ----------
+ * Catálogo, comparador, socios y usuarios: agreguen sus estilos debajo,
+ * cada uno en su propia sección.
+ */
