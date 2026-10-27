@@ -4,18 +4,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>autopartes</groupId>
-    <artifactId>portal-autopartes</artifactId>
+    <groupId>autoparts</groupId>
+    <artifactId>autoparts-portal</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>Portal de Autopartes - ORIGEN</name>
+    <name>ORIGEN - Portal de Repuestos</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- Compila para Java 21; funciona con JDK 21 o superior (por ejemplo JDK 25) -->
         <maven.compiler.release>21</maven.compiler.release>
         <javafx.version>21.0.5</javafx.version>
-        <mainClass>autopartes.Main</mainClass>
+        <mainClass>autoparts.Main</mainClass>
     </properties>
 
     <dependencies>
