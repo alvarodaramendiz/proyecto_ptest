@@ -25,49 +25,54 @@ La primera vez Maven descarga JavaFX, así que necesita internet.
 ## Estructura
 
 ```
-src/main/java/autopartes/
-├── modelo/        Entidades del dominio
+src/main/java/autoparts/
+├── model/         Entidades del dominio
 ├── dao/           Interfaces DAO
-│   └── archivo/   Implementaciones con archivos planos
-├── servicio/      Reglas de negocio y validaciones
-├── vista/         Controladores JavaFX y Navegador
-├── excepcion/     Excepciones propias
+│   └── file/      Implementaciones con archivos planos
+├── service/       Reglas de negocio y validaciones
+├── view/          Controladores JavaFX y Navigator
+├── exception/     Excepciones propias
 ├── util/          Rutas de archivos y utilidades de lectura/escritura
 └── Main.java      Arranca la aplicación
 
-src/main/resources/autopartes/vista/   Archivos .fxml y estilos.css
-data/                                  Archivos de datos (.csv)
-docs/                                  Documentación del proyecto
+src/main/resources/autoparts/view/   Archivos .fxml y styles.css
+data/                                Archivos de datos (.csv)
+docs/                                Documentación del proyecto
 ```
 
-**Regla de capas:** la vista solo llama a servicios; los servicios solo llaman a interfaces DAO; nadie lee ni escribe archivos fuera de `dao.archivo`. Los servicios reciben el DAO por constructor.
+**Regla de capas:** la vista solo llama a servicios; los servicios solo llaman a interfaces DAO; nadie lee ni escribe archivos fuera de `dao.file`. Los servicios reciben el DAO por constructor.
 
 ### Agregar una pantalla al menú
 
-1. Crear `NombreVista.fxml` en `src/main/resources/autopartes/vista/` con su `NombreVistaController` en `autopartes.vista`.
-2. Las vistas del menú ya están conectadas por nombre en `PrincipalController`: `Catalogo.fxml`, `Comparador.fxml`, `Socios.fxml` y `MiCuenta.fxml`. Mientras el archivo no exista, se muestra "Sección en construcción".
-3. Los estilos nuevos van en `estilos.css`, en la sección de su módulo.
+1. Crear `NombreVista.fxml` en `src/main/resources/autoparts/view/` con su `NombreVistaController` en `autoparts.view`.
+2. Las vistas del menú ya están conectadas por nombre en `DashboardController`: `Catalog.fxml`, `Comparator.fxml`, `Partners.fxml` y `MyAccount.fxml`. Mientras el archivo no exista, se muestra "Sección en construcción".
+3. Los estilos nuevos van en `styles.css`, en la sección de su módulo.
 
 ## Convenciones
 
+**Idioma:** el código (paquetes, clases, métodos, atributos, `fx:id`, clases CSS y nombres de archivos de datos) va en **inglés**. Los textos que ve el usuario, los comentarios Javadoc, la documentación y la descripción de los commits van en **español**.
+
 | Elemento | Convención | Ejemplo |
 |---|---|---|
-| Paquetes | minúsculas | `autopartes.servicio` |
-| Clases del modelo | singular, PascalCase | `Componente`, `Proveedor` |
-| Interfaces DAO / implementaciones | Entidad + `DAO` / + `Archivo` (luego + `Oracle`) | `ComponenteDAO`, `ComponenteDAOArchivo` |
-| Servicios | Entidad + `Servicio` | `ComparadorServicio` |
-| Vistas / controladores | `Nombre.fxml` + `NombreController` | `Login.fxml`, `LoginController` |
-| fx:id de los componentes | prefijo de tipo + nombre | `txtCorreo`, `btnIngresar`, `tblOfertas` |
-| Archivos de datos | plural, minúsculas, `.csv` | `componentes.csv` |
-| Métodos y atributos | camelCase en español | `listarPorComponente()` |
+| Paquetes | minúsculas | `autoparts.service` |
+| Clases del modelo | singular, PascalCase | `Component`, `Supplier` |
+| Interfaces DAO / implementaciones | Entidad + `DAO` / Entidad + `File` + `DAO` (luego `Oracle`) | `ComponentDAO`, `ComponentFileDAO` |
+| Servicios | Entidad + `Service` | `ComparatorService` |
+| Vistas / controladores | `Name.fxml` + `NameController` | `Login.fxml`, `LoginController` |
+| fx:id de los componentes | prefijo de tipo + nombre, camelCase | `txtEmail`, `btnLogin`, `tblOffers` |
+| Métodos y atributos | camelCase, verbos para métodos | `findByComponent()`, `unitPrice` |
+| Constantes | MAYÚSCULAS con guion bajo | `MY_ACCOUNT` |
+| Archivos de datos | plural, minúsculas, `.csv` | `components.csv` |
 
-**Formato de los archivos de datos:** una línea por registro, campos separados por `|`, UTF-8, sin encabezado. En las clases con herencia, el primer campo es el tipo (`PROVEEDOR`, `TALLER`, `LLANTA`...). Los campos siguen el orden de las columnas del modelo v5.
+Cada clase lleva un comentario Javadoc (`/** ... */`) que explica qué hace y su `@author`. Sin comentarios innecesarios: solo donde algo no se entiende a simple vista.
+
+**Formato de los archivos de datos:** una línea por registro, campos separados por `|`, UTF-8, sin encabezado. En las clases con herencia, el primer campo es el tipo (`SUPPLIER`, `WORKSHOP`, `TIRE`...). Los campos siguen el orden de las columnas del modelo v5; la correspondencia entre atributo y columna se documenta en `docs/`.
 
 ## Trabajo con Git
 
 - Ramas: `main` (solo entregas) ← `develop` (integración) ← `feature/*` (un módulo por rama).
 - Nadie hace commit directo a `main` ni a `develop`: todo entra por **Pull Request a `develop`**, aprobado por otro integrante, y se fusiona con **merge commit** (no squash).
-- Mensajes de commit: `tipo(módulo): descripción`, con tipos `feat`, `fix`, `docs`, `refactor`. Ejemplo: `feat(catalogo): agregar DAO de componente`.
+- Mensajes de commit: `tipo(módulo): descripción`, con tipos `feat`, `fix`, `docs`, `refactor`. Ejemplo: `feat(catalog): agregar DAO de componente`.
 - Antes de abrir un PR: actualizar la rama con `develop` y resolver los conflictos en la rama propia.
 - Los datos de prueba de `data/` se suben, pero no los cambios que quedan al probar (`git restore data/` antes del commit).
 
